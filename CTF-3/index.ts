@@ -17,8 +17,8 @@ import { my_mnemonic as mnemonic } from "../config"; // Import mnemonic from a c
 
   // Create a payment transaction (sending 1 Algo)
   const payTxn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-    from : account.addr,
-    to : secretRecipient,
+    sender: account.addr,
+    receiver: secretRecipient,
     amount: algosdk.algosToMicroalgos(1),
     suggestedParams: await algodClient.getTransactionParams().do(),
     note: encoder.encode(
